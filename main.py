@@ -57,14 +57,14 @@ books = {
             description="Harry's third year of studies at Hogwarts is threatened by Sirius Black's escape from Azkaban prison. Apparently, it is a dangerous wizard who was an accomplice of Lord Voldemort and who will try to take revenge on Harry Potter.",
             pages=317,
             cover="https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/3.png"),
-            
+
 }
 
 @app.get("/")
 def index() -> dict[str, dict[int, Item]]:
     return {"items":items}
     
-
+#present the data of each item
 @app.get("/items/{item_id}")
 def view_item(item_id:int, q: str|None = None) -> Item:
      if item_id not in items:
@@ -72,7 +72,11 @@ def view_item(item_id:int, q: str|None = None) -> Item:
              status_code=404, details=f"Item with {item_id} does not exist."
          )
      else: 
-        return items[item_id]
+        if item_id == 0:
+            return books
+        else:
+            print("the data is not uploaded yet.")
+            
 
 @app.get("/items/{item_id}/{book_id}")
 def view_book(book_id:int, q: str|None = None) -> Book:

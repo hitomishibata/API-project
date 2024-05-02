@@ -30,8 +30,6 @@ class Book (BaseModel):
     cover: str
 
 
-#how can I upload database(parquet format) here?
-
 items = {
     0: Item(artifact="books", category=Category.EN),
     1: Item(artifact="characters", category=Category.EN),
@@ -52,7 +50,14 @@ books = {
             releaseDate="Jul 2, 1998",
             description="Harry Potter and the sophomores investigate a malevolent threat to their Hogwarts classmates, a menacing beast that hides within the castle.",
             pages=251,
-            cover="https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/2.png")
+            cover="https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/2.png"),
+    2: Book(title= "Harry Potter and the Prisoner of Azkaban",
+            originalTitle="Harry Potter and the Prisoner of Azkaban",
+            releaseDate="Jul 8, 1999",
+            description="Harry's third year of studies at Hogwarts is threatened by Sirius Black's escape from Azkaban prison. Apparently, it is a dangerous wizard who was an accomplice of Lord Voldemort and who will try to take revenge on Harry Potter.",
+            pages=317,
+            cover="https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/3.png"),
+            
 }
 
 @app.get("/")

@@ -1,0 +1,6 @@
+# ignoring specific files
+__pycache__/
+books-en.parquet
+characters-en.parquet
+houses-en.parquet
+spells-en.parquet

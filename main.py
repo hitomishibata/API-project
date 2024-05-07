@@ -1,9 +1,10 @@
+from enum import Enum
+from typing import Union
+
 import requests
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-from enum import Enum
-from typing import Union
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
@@ -17,9 +18,11 @@ class Category(Enum):
     IT = "it"
     PT = "pt"
 
+
 class Item (BaseModel):
     artifact: str
     category: Category
+
 
 class Book (BaseModel):
     title: str
@@ -62,9 +65,8 @@ books = {
 
 @app.get("/")
 def index() -> dict[str, dict[int, Item]]:
-    return {"items":items}
+    return {"items": items}
     
-#present the data of each item
 @app.get("/items/{item_id}")
 def view_item(item_id:int, q: str|None = None) -> Item:
      if item_id not in items:
@@ -77,7 +79,6 @@ def view_item(item_id:int, q: str|None = None) -> Item:
         else:
             print("the data is not uploaded yet.")
             
-
 @app.get("/items/{item_id}/{book_id}")
 def view_book(book_id:int, q: str|None = None) -> Book:
     if book_id not in books:

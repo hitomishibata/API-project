@@ -11,6 +11,7 @@ Contents:
 - Cleaning the parquet files by converting the column names
 
 For creating an API, I used the data from the PotterAPI again as example data.
+
 Contents:
 - Set the content of data and data structure
 - Writing the response to different requests (get, post, and put)

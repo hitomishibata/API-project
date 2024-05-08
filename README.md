@@ -1,4 +1,4 @@
-##API Practice Project
+## API Practice Project
 In this project, I practiced getting data via API and creating my own API using Requests and FastAPI.
 
 For ingesting data, I used PotterAPI (https://github.com/fedeperin/potterapi). PotterAPI is a Harry Potter API developed with Express.js and available in multiple languages.
